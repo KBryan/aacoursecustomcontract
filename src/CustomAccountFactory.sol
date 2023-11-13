@@ -4,9 +4,6 @@ pragma solidity ^0.8.13;
 import "@thirdweb-dev/contracts/prebuilts/account/utils/BaseAccountFactory.sol";
 import "./CustomAccount.sol";
 
-
-
-
 contract CustomAccountFactory is BaseAccountFactory {
     event Registered(string username, address account);
     mapping(string => address) public accountOfUsername;
@@ -34,6 +31,5 @@ contract CustomAccountFactory is BaseAccountFactory {
         require(accountOfUsername[username] == address (0), "Username taken...");
         accountOfUsername[username] = account;
         emit Registered(username,account);
-
     }
 }
